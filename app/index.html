@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Todo Demo</title>
+  </head>
+  <body>
+    <h1>Todo Demo</h1>
+    <form id="form">
+      <label for="item">New item</label>
+      <input id="item" name="item" />
+      <button type="submit">Add</button>
+    </form>
+    <ul id="list" aria-label="Todo list"></ul>
+    <script>
+      const form = document.getElementById('form');
+      const input = document.getElementById('item');
+      const list = document.getElementById('list');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const text = input.value.trim();
+        if (!text) return;
+        const li = document.createElement('li');
+        li.textContent = text;
+        list.appendChild(li);
+        input.value = '';
+      });
+    </script>
+  </body>
+</html>
