@@ -10,7 +10,7 @@ export default defineConfig({
   workers: process.env.CI ? 2 : undefined,
   // CI shards upload blob reports that a later job merges into one HTML report.
   reporter: process.env.CI
-    ? [['github']]
+    ? [['blob'], ['github']]
     : [['html', { outputFolder: 'playwright-report', open: 'never' }], ['list']],
   use: {
     baseURL: `http://localhost:${PORT}`,
